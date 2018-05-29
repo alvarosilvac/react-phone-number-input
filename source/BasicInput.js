@@ -25,7 +25,7 @@ export default class BasicInput extends PureComponent
 	onChange = (event) =>
 	{
 		console.log('inside this',event)
-		const { onChange } = this.props
+		const { onChange, onInput } = this.props
 		const { value } = this.state
 
 		let newValue = parsePhoneNumberCharacters(event.target.value)
@@ -49,7 +49,7 @@ export default class BasicInput extends PureComponent
 		// Prevents React from resetting the `<input/>` caret position.
 		// https://github.com/reactjs/react-redux/issues/525#issuecomment-254852039
 		// https://github.com/facebook/react/issues/955
-		this.setState({ value: newValue }, () => onChange(newValue))
+		this.setState({ value: newValue }, () => {onChange(newValue),onInput(newValue)})
 	}
 
 	format(value)
@@ -74,6 +74,7 @@ export default class BasicInput extends PureComponent
 			onChange,
 			country,
 			metadata,
+			onInput,
 			...rest
 		}
 		= this.props

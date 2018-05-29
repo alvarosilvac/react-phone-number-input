@@ -321,6 +321,7 @@ export default class PhoneNumberInput extends PureComponent
 		{
 			metadata,
 			onChange,
+			onInput,
 			countrySelectHidesPhoneInputField
 		}
 		= this.props
@@ -709,7 +710,7 @@ export default class PhoneNumberInput extends PureComponent
 							country={ country }
 							value={ parsed_input || '' }
 							onChange={ this.onChange }
-							onInput={ this.onInput }
+							onInput={ this.onChange }
 							onBlur={ this.onBlur }
 							onKeyDown={ this.onPhoneNumberKeyDown }
 							disabled={ disabled }
