@@ -23,12 +23,6 @@ export default class CountrySelectNative extends Component
 		onChange(event.target.value)
 	}
 
-	onInput = (event) =>
-	{
-		const { onInput } = this.props
-		onInput(event.target.value)
-	}
-
 	render()
 	{
 		const
@@ -55,7 +49,6 @@ export default class CountrySelectNative extends Component
 					name={ name }
 					value={ value }
 					onChange={ this.onChange }
-					onInput={ this.onChange }
 					disabled={ disabled }
 					tabIndex={ tabIndex }
 					className="react-phone-number-input__country-select">

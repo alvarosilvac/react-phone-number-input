@@ -24,6 +24,7 @@ export default class BasicInput extends PureComponent
 
 	onChange = (event) =>
 	{
+		console.log('inside this',event)
 		const { onChange } = this.props
 		const { value } = this.state
 
@@ -71,7 +72,6 @@ export default class BasicInput extends PureComponent
 		{
 			// value,
 			onChange,
-			onInput,
 			country,
 			metadata,
 			...rest
