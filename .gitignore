@@ -26,9 +26,6 @@ npm-debug.log
 # workspace files are user-specific
 *.sublime-workspace
 
-# webpack build target folder
-/modules/
-
 /bundle/index.html
 /bundle/rrui.css
 /bundle/react-responsive-ui.css
