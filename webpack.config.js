@@ -26,5 +26,8 @@ module.exports =
     // Use external version of React
     "react"     : "React",
     "react-dom" : "ReactDOM"
+  },
+  resolve: {
+    extensions: [".js", ".json"]
   }
 }
