@@ -9,6 +9,8 @@ import BasicInput from './BasicInput'
 import InternationalIcon from './InternationalIcon'
 import FlagComponent from './Flag'
 
+import $ from 'jquery'
+
 import
 {
 	getPreSelectedCountry,
@@ -572,6 +574,7 @@ export default class PhoneNumberInput extends PureComponent
 		// and doesn't want to be disturbed, doesn't want his input to be screwed, etc.
 		if (new_default_country !== old_default_country && !hasChangedCountry && !value && !new_value)
 		{
+			$('#inputPhoneParent').trigger('onChange');
 			return {
 				...new_state,
 				country : new_default_country
@@ -591,7 +594,7 @@ export default class PhoneNumberInput extends PureComponent
 		else if (new_value !== old_value && new_value !== value)
 		{
 			const parsed_number = parsePhoneNumber(new_value, metadata)
-
+			$('#inputPhoneParent').trigger('onChange');
 			return {
 				...new_state,
 				parsed_input : generate_parsed_input(new_value, parsed_number, props),
@@ -603,11 +606,6 @@ export default class PhoneNumberInput extends PureComponent
 		// Maybe `new_state.country_select_options` changed.
 		// In any case, update `prevProps`.
 		return new_state
-	}
-
-	componentWillReceiveProps(newValue){
-		console.log('new value received',newValue);
-		console.log('state inside the input', this.state.parsed_input)
 	}
 
 	render()
@@ -709,6 +707,7 @@ export default class PhoneNumberInput extends PureComponent
 					{/* Phone number `<input/>` */}
 					{ !hidePhoneInputField &&
 						<InputComponent
+							id="inputPhoneParent"
 							type="tel"
 							name={ name }
 							{ ...phoneNumberInputProps }

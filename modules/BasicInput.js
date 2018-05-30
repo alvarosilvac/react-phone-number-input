@@ -119,6 +119,7 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 
 
 			return _react2.default.createElement('input', _extends({}, rest, {
+				id: 'childPhoneInput',
 				ref: this.storeInput,
 				value: this.format(value),
 				onChange: this.onChange,
@@ -134,6 +135,7 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 		value: function getDerivedStateFromProps(_ref2) {
 			var value = _ref2.value;
 
+			$('#childPhoneInput').trigger('onChange');
 			return { value: value };
 		}
 	}]);
