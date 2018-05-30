@@ -51,7 +51,9 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BasicInput.__proto__ || Object.getPrototypeOf(BasicInput)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this.onChange = function (event) {
 			console.log('inside this', event);
-			var onChange = _this.props.onChange;
+			var _this$props = _this.props,
+			    onChange = _this$props.onChange,
+			    onInput = _this$props.onInput;
 			var value = _this.state.value;
 
 
@@ -75,7 +77,7 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 			// https://github.com/reactjs/react-redux/issues/525#issuecomment-254852039
 			// https://github.com/facebook/react/issues/955
 			_this.setState({ value: newValue }, function () {
-				return onChange(newValue);
+				onChange(newValue), onInput(newValue);
 			});
 		}, _this.storeInput = function (ref) {
 			return _this.input = ref;
@@ -104,7 +106,8 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 			    onChange = _props2.onChange,
 			    country = _props2.country,
 			    metadata = _props2.metadata,
-			    rest = _objectWithoutProperties(_props2, ['onChange', 'country', 'metadata']);
+			    onInput = _props2.onInput,
+			    rest = _objectWithoutProperties(_props2, ['onChange', 'country', 'metadata', 'onInput']);
 
 			// Prevents React from resetting the `<input/>` caret position.
 			// https://github.com/reactjs/react-redux/issues/525#issuecomment-254852039
