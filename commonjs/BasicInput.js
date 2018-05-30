@@ -50,10 +50,11 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BasicInput.__proto__ || Object.getPrototypeOf(BasicInput)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _this.onChange = function (event) {
-			console.log('inside this', event);
+			console.log('inside this', event.target.value);
 			var _this$props = _this.props,
 			    onChange = _this$props.onChange,
-			    onInput = _this$props.onInput;
+			    onInput = _this$props.onInput; //this props will send to parents
+
 			var value = _this.state.value;
 
 
@@ -77,8 +78,8 @@ var BasicInput = (0, _reactLifecyclesCompat.polyfill)(_class = function (_PureCo
 			// https://github.com/reactjs/react-redux/issues/525#issuecomment-254852039
 			// https://github.com/facebook/react/issues/955
 			_this.setState({ value: newValue }, function () {
-				onChange(newValue), onInput(newValue);
-			});
+				console.log('1 i am setting the state in onchange BasicInput');onChange(newValue);console.log('2 I continue to input');onInput(newValue);console.log('3 done in basic onchange');
+			}); //we are sending then the newValues to the props
 		}, _this.storeInput = function (ref) {
 			return _this.input = ref;
 		}, _temp), _possibleConstructorReturn(_this, _ret);

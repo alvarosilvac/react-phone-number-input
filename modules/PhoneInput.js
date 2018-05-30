@@ -234,6 +234,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 						value: country,
 						options: country_select_options,
 						onChange: this.onCountrySelected,
+						onInput: this.onCountrySelected,
 						disabled: disabled,
 						tabIndex: countrySelectTabIndex,
 						hidePhoneInputField: this.hidePhoneInputField,
@@ -600,6 +601,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 			// because `onChange()` will trigger `getDerivedStateFromProps()`
 			// with the new `value` which will be compared to `state.value` there.
 			onChange(new_value);
+			onInput(new_value);
 
 			// Focus the phone number `<input/>` upon country selection.
 			// Doing it in a `setState()` callback because the phone number
@@ -666,7 +668,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 		// because `onChange()` will trigger `getDerivedStateFromProps()`
 		// with the new `value` which will be compared to `state.value` there.
 		function () {
-			return onChange(value);
+			onChange(value);onInput(value);
 		});
 	};
 

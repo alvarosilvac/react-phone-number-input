@@ -24,8 +24,8 @@ export default class BasicInput extends PureComponent
 
 	onChange = (event) =>
 	{
-		console.log('inside this',event)
-		const { onChange, onInput } = this.props
+		console.log('inside this',event.target.value)
+		const { onChange, onInput } = this.props //this props will send to parents
 		const { value } = this.state
 
 		let newValue = parsePhoneNumberCharacters(event.target.value)
@@ -49,7 +49,7 @@ export default class BasicInput extends PureComponent
 		// Prevents React from resetting the `<input/>` caret position.
 		// https://github.com/reactjs/react-redux/issues/525#issuecomment-254852039
 		// https://github.com/facebook/react/issues/955
-		this.setState({ value: newValue }, () => {onChange(newValue),onInput(newValue)})
+		this.setState({ value: newValue }, () => {console.log('1 i am setting the state in onchange BasicInput'); onChange(newValue); console.log('2 I continue to input'); onInput(newValue); console.log('3 done in basic onchange')}) //we are sending then the newValues to the props
 	}
 
 	format(value)
