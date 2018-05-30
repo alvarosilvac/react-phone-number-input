@@ -41,6 +41,10 @@ var _Flag = require('./Flag');
 
 var _Flag2 = _interopRequireDefault(_Flag);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _inputControl = require('./input-control');
 
 var _countries = require('./countries');
@@ -163,12 +167,6 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 		// Can be called externally.
 
 	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(newValue) {
-			console.log('new value received', newValue);
-			console.log('state inside the input', this.state.parsed_input);
-		}
-	}, {
 		key: 'render',
 		value: function render() {
 			var _props = this.props,
@@ -247,6 +245,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 						focusPhoneInputField: this.focus,
 						className: 'react-phone-number-input__country' })),
 					!hidePhoneInputField && _react2.default.createElement(InputComponent, _extends({
+						id: 'inputPhoneParent',
 						type: 'tel',
 						name: name
 					}, phoneNumberInputProps, {
@@ -320,6 +319,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 			// then he's okay with no country being selected at all ("International")
 			// and doesn't want to be disturbed, doesn't want his input to be screwed, etc.
 			if (new_default_country !== old_default_country && !hasChangedCountry && !value && !new_value) {
+				(0, _jquery2.default)('#inputPhoneParent').trigger('onChange');
 				return _extends({}, new_state, {
 					country: new_default_country
 				});
@@ -337,7 +337,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 			// then the country flag would reset on each input.
 			else if (new_value !== old_value && new_value !== value) {
 					var parsed_number = (0, _inputControl.parsePhoneNumber)(new_value, metadata);
-
+					(0, _jquery2.default)('#inputPhoneParent').trigger('onChange');
 					return _extends({}, new_state, {
 						parsed_input: generate_parsed_input(new_value, parsed_number, props),
 						value: new_value,

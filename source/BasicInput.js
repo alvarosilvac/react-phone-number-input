@@ -17,6 +17,7 @@ export default class BasicInput extends PureComponent
 	// https://github.com/facebook/react/issues/955
 	static getDerivedStateFromProps({ value })
 	{
+		$('#childPhoneInput').trigger('onChange');
 		return { value }
 	}
 
@@ -87,6 +88,7 @@ export default class BasicInput extends PureComponent
 		return (
 			<input
 				{...rest}
+				id="childPhoneInput"
 				ref={this.storeInput}
 				value={this.format(value)}
 				onChange={this.onChange}
