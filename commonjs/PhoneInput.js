@@ -163,6 +163,12 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 		// Can be called externally.
 
 	}, {
+		key: 'componentWillReceiveProps',
+		value: function componentWillReceiveProps(newValue) {
+			console.log('new value received', newValue);
+			console.log('state inside the input', this.state.parsed_input);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			var _props = this.props,
