@@ -248,7 +248,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 						country: country,
 						value: parsed_input || '',
 						onChange: this.onChange,
-						onInput: this.onInput,
+						onInput: this.onChange,
 						onBlur: this.onBlur,
 						onKeyDown: this.onPhoneNumberKeyDown,
 						disabled: disabled,
@@ -555,7 +555,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 	// Set to `false` to use `inputComponent={BasicInput}`
 	// instead of `input-format`'s `<ReactInput/>`.
 	// Is `true` by default.
-	smartCaret: true,
+	smartCaret: false,
 
 	// `react-responsive-ui` `<Select/>` sets this to true
 	// to hide the phone number input field when expanded.
@@ -567,6 +567,7 @@ var PhoneNumberInput = (0, _reactLifecyclesCompat.polyfill)(_class = (_temp = _c
 		var _props2 = _this2.props,
 		    metadata = _props2.metadata,
 		    onChange = _props2.onChange,
+		    onInput = _props2.onInput,
 		    countrySelectHidesPhoneInputField = _props2.countrySelectHidesPhoneInputField;
 		var _state2 = _this2.state,
 		    old_parsed_input = _state2.parsed_input,
