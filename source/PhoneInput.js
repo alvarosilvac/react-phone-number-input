@@ -247,7 +247,7 @@ export default class PhoneNumberInput extends PureComponent
 		// Set to `false` to use `inputComponent={BasicInput}`
 		// instead of `input-format`'s `<ReactInput/>`.
 		// Is `true` by default.
-		smartCaret : true,
+		smartCaret : false,
 
 		// `react-responsive-ui` `<Select/>` sets this to true
 		// to hide the phone number input field when expanded.
