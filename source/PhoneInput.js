@@ -605,6 +605,11 @@ export default class PhoneNumberInput extends PureComponent
 		return new_state
 	}
 
+	componentWillReceiveProps(newValue){
+		console.log('new value received',newValue);
+		console.log('state inside the input', this.state.parsed_input)
+	}
+
 	render()
 	{
 		const
